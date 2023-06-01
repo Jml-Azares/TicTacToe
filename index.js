@@ -9,6 +9,33 @@ let turnMessage;
 let gameOver;
 let winningCombinations;
 
+let gameModeRadios = document.querySelectorAll('input[name="gameMode"]');
+gameModeRadios.forEach(function (radio) {
+  radio.addEventListener("change", function () {
+    var gameMode = document.querySelector(
+      'input[name="gameMode"]:checked'
+    ).value;
+    var player2Input = document.getElementById("player2Name");
+
+    if (gameMode === "single") {
+      player2Input.disabled = true;
+    } else {
+      player2Input.disabled = false;
+    }
+  });
+});
+
+document.addEventListener("DOMContentLoaded", function () {
+  var gameMode = document.querySelector('input[name="gameMode"]:checked').value;
+  var player2Input = document.getElementById("player2Name");
+
+  if (gameMode === "single") {
+    player2Input.disabled = true;
+  } else {
+    player2Input.disabled = false;
+  }
+});
+
 function startGame() {
   winScore = parseInt(
     document.querySelector('input[name="winScore"]:checked').value
