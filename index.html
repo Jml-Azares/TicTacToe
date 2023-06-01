@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="myStyle.css" />
+    <title>TicTacToe</title>
+  </head>
+  <body>
+    <div id="game-container">
+      <div id="game-settings">
+        <h2>Game Settings</h2>
+        <label>
+          <input type="radio" name="winScore" value="5" checked />First to 5
+          wins
+        </label>
+        <label>
+          <input type="radio" name="winScore" value="10" />First to 10 wins
+        </label>
+        <br />
+        <label>
+          <input type="radio" name="gameMode" value="single" checked />Single
+          Player
+        </label>
+        <label>
+          <input type="radio" name="gameMode" value="twoPlayer" />Two Players
+        </label>
+        <br />
+        <div id="playerNames">
+          <label for="player1Name">Player 1 Name:</label>
+          <input type="text" id="player1Name" placeholder="Player 1" />
+          <br />
+          <label for="player2Name">Player 2 Name:</label>
+          <input type="text" id="player2Name" placeholder="Player 2" />
+        </div>
+        <button onclick="startGame()">Start Game</button>
+      </div>
+
+      <div id="game-board" class="hidden">
+        <h2>Scoreboard</h2>
+        <div id="scores">
+          <div id="player1Score">Player 1: 0</div>
+          <div id="player2Score">Player 2: 0</div>
+        </div>
+        <div id="turnMessage"></div>
+        <div id="cells">
+          <div id="cell0" onclick="makeMove(0)"></div>
+          <div id="cell1" onclick="makeMove(1)"></div>
+          <div id="cell2" onclick="makeMove(2)"></div>
+          <div id="cell3" onclick="makeMove(3)"></div>
+          <div id="cell4" onclick="makeMove(4)"></div>
+          <div id="cell5" onclick="makeMove(5)"></div>
+          <div id="cell6" onclick="makeMove(6)"></div>
+          <div id="cell7" onclick="makeMove(7)"></div>
+          <div id="cell8" onclick="makeMove(8)"></div>
+        </div>
+        <button onclick="resetGame()">Reset Game</button>
+      </div>
+    </div>
+    <script src="index.js"></script>
+  </body>
+</html>

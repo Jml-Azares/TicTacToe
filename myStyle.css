@@ -1,0 +1,56 @@
+h1,
+h2 {
+  text-align: center;
+}
+
+#game-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+#game-settings,
+#game-board {
+  text-align: center;
+  padding: 20px;
+  border: 1px solid black;
+  border-radius: 5px;
+}
+
+.hidden {
+  display: none;
+}
+
+#cells {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 10px;
+  margin-top: 20px;
+}
+
+#cells div {
+  width: 100px;
+  height: 100px;
+  border: 1px solid black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+#turnMessage {
+  margin-top: 10px;
+  font-weight: bold;
+}
+
+#scores {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+button {
+  margin-top: 10px;
+}
