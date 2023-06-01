@@ -2,6 +2,10 @@
   font-family: "Geologica", sans-serif;
 }
 
+body {
+  background: linear-gradient(112.87deg, #394867, #9ba4b5);
+}
+
 #game-container {
   display: flex;
   justify-content: center;
@@ -13,8 +17,9 @@
 #game-board {
   text-align: center;
   padding: 20px;
-  border: 1px solid black;
-  border-radius: 5px;
+  border-radius: 10px;
+  background-color: #ffffff;
+  box-shadow: 20px 20px 17px 10px rgba(0, 0, 0, 0.25);
 }
 
 .game-hidden {
@@ -36,9 +41,14 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 24px;
+  font-size: xx-large;
   cursor: pointer;
-  font-family: "Alfa Slab One";
+  font-family: "Rubik Pixels";
+  font-weight: bolder;
+}
+
+#cells div:hover {
+  background-color: #dde6ed;
 }
 
 #turnMessage {
@@ -53,5 +63,17 @@
 }
 
 button {
-  margin-top: 10px;
+  margin-top: 15px;
+}
+
+.uppercase {
+  text-transform: uppercase;
+}
+
+.X {
+  color: green;
+}
+
+.O {
+  color: red;
 }

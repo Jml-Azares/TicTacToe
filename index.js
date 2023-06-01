@@ -42,6 +42,8 @@ function startGame() {
     }
     player2Name = "CPU";
     alert(`Welcome, ${player1Name}! You are playing against the CPU.`);
+    document.getElementById("player1Name").style.color = "green";
+    document.getElementById("player1Score").style.color = "green";
   } else {
     if (player1Name === "" || player2Name === "") {
       alert("Please enter the names of both players.");
@@ -50,6 +52,10 @@ function startGame() {
     alert(
       `Welcome, ${player1Name} and ${player2Name}! Get ready to play against each other.`
     );
+    document.getElementById("player1Name").style.color = "green";
+    document.getElementById("player1Score").style.color = "green";
+    document.getElementById("player2Name").style.color = "red";
+    document.getElementById("player2Score").style.color = "red";
   }
 
   document.getElementById("player1Score").textContent = `${player1Name}: 0`;
@@ -73,6 +79,7 @@ function makeMove(cellIndex) {
   if (!gameOver && cells[cellIndex].textContent === "") {
     cells[cellIndex].textContent = currentPlayer;
     cells[cellIndex].classList.add(currentPlayer);
+    cells[cellIndex].classList.add("uppercase"); // Add uppercase class
     checkWin();
     togglePlayer();
     updateTurnMessage();
@@ -96,11 +103,10 @@ function makeCPUMove() {
   setTimeout(() => {
     cells[cpuMoveIndex].textContent = currentPlayer;
     cells[cpuMoveIndex].classList.add(currentPlayer);
+    cells[cpuMoveIndex].classList.add("uppercase"); // Add uppercase class
     checkWin();
-    if (!gameOver) {
-      togglePlayer();
-      updateTurnMessage();
-    }
+    togglePlayer();
+    updateTurnMessage();
   }, 500);
 }
 
