@@ -40,6 +40,7 @@ function startGame() {
       alert("Please enter your name.");
       return;
     }
+    player2Name = "CPU";
     alert(`Welcome, ${player1Name}! You are playing against the CPU.`);
   } else {
     if (player1Name === "" || player2Name === "") {
@@ -53,15 +54,15 @@ function startGame() {
 
   document.getElementById("player1Score").textContent = `${player1Name}: 0`;
   document.getElementById("player2Score").textContent = `${player2Name}: 0`;
-  turnMessage.textContent = `Current turn: ${player1Name}`;
+  updateTurnMessage();
 
   cells.forEach((cell) => {
     cell.textContent = "";
     cell.classList.remove("winning-cell");
   });
 
-  document.getElementById("game-settings").classList.add("hidden");
-  document.getElementById("game-board").classList.remove("hidden");
+  document.getElementById("game-settings").classList.add("game-hidden");
+  document.getElementById("game-board").classList.remove("game-hidden");
 
   if (gameMode === "single" && currentPlayer === "O") {
     makeCPUMove();
@@ -96,8 +97,10 @@ function makeCPUMove() {
     cells[cpuMoveIndex].textContent = currentPlayer;
     cells[cpuMoveIndex].classList.add(currentPlayer);
     checkWin();
-    togglePlayer();
-    updateTurnMessage();
+    if (!gameOver) {
+      togglePlayer();
+      updateTurnMessage();
+    }
   }, 500);
 }
 
@@ -115,18 +118,26 @@ function checkWin() {
       scores[currentPlayer]++;
       gameOver = true;
       updateScoreboard();
+      let winner;
+      if (gameMode === "single" && currentPlayer === "X") {
+        winner = player1Name;
+      } else if (gameMode === "single" && currentPlayer === "O") {
+        winner = "CPU";
+      } else {
+        winner = getPlayerName(currentPlayer);
+      }
       if (scores[currentPlayer] === winScore) {
         setTimeout(() => {
-          alert(`Game over! ${getPlayerName(currentPlayer)} wins the match!`);
+          alert(`Game over! ${winner} wins the match!`);
           resetGame();
         }, 500);
       } else {
         setTimeout(() => {
-          alert(`Round over! ${getPlayerName(currentPlayer)} wins this round!`);
+          alert(`${winner} wins this round!`);
           resetRound();
         }, 500);
       }
-      break;
+      return; // Exit the function if there's a win
     }
   }
   if (!gameOver && cells.every((cell) => cell.textContent !== "")) {
@@ -143,7 +154,11 @@ function togglePlayer() {
 }
 
 function updateTurnMessage() {
-  turnMessage.textContent = `Current turn: ${getPlayerName(currentPlayer)}`;
+  if (gameMode === "single" && currentPlayer === "O") {
+    turnMessage.textContent = `Current turn: CPU`;
+  } else {
+    turnMessage.textContent = `Current turn: ${getPlayerName(currentPlayer)}`;
+  }
 }
 
 function updateScoreboard() {
@@ -166,8 +181,8 @@ function resetRound() {
 }
 
 function resetGame() {
-  document.getElementById("game-settings").classList.remove("hidden");
-  document.getElementById("game-board").classList.add("hidden");
+  document.getElementById("game-settings").classList.remove("game-hidden");
+  document.getElementById("game-board").classList.add("game-hidden");
   document.getElementById("player1Name").value = "";
   document.getElementById("player2Name").value = "";
   resetRound();

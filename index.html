@@ -30,6 +30,7 @@
         <label>
           <input type="radio" name="winScore" value="5" checked />Race to 5
         </label>
+        <br />
         <label>
           <input type="radio" name="winScore" value="10" />Race to 10
         </label>
@@ -43,17 +44,21 @@
         </label>
         <br /><br />
         <div id="playerNames">
-          <label for="player1Name">Player 1 Name:</label>
-          <input type="text" id="player1Name" placeholder="Player 1" />
-          <br /><br />
-          <label for="player2Name">Player 2 Name:</label>
-          <input type="text" id="player2Name" placeholder="Player 2" />
+          <div id="player1">
+            <label for="player1Name">Player 1:</label>
+            <input type="text" id="player1Name" placeholder="Player 1" />
+          </div>
+          <br />
+          <div id="player2">
+            <label for="player2Name">Player 2:</label>
+            <input type="text" id="player2Name" placeholder="Player 2" />
+          </div>
         </div>
         <br />
         <button onclick="startGame()">Start Game</button>
       </div>
 
-      <div id="game-board" class="hidden">
+      <div id="game-board" class="game-hidden">
         <h2>Scoreboard</h2>
         <div id="scores">
           <div id="player1Score">Player 1: 0</div>

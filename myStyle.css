@@ -2,11 +2,6 @@
   font-family: "Geologica", sans-serif;
 }
 
-h1,
-h2 {
-  text-align: center;
-}
-
 #game-container {
   display: flex;
   justify-content: center;
@@ -22,16 +17,16 @@ h2 {
   border-radius: 5px;
 }
 
-.hidden {
+.game-hidden {
   display: none;
 }
 
 #cells {
-  font-family: "Alfa Slab One", cursive;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-gap: 10px;
   margin-top: 20px;
+  text-transform: uppercase;
 }
 
 #cells div {
@@ -43,6 +38,7 @@ h2 {
   align-items: center;
   font-size: 24px;
   cursor: pointer;
+  font-family: "Alfa Slab One";
 }
 
 #turnMessage {
