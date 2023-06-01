@@ -4,7 +4,23 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Geologica:wght@100;200;300;400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="myStyle.css" />
+    <link
+      rel="shortcut icon"
+      href="images/pngwing.com.png"
+      type="image/x-icon"
+    />
     <title>TicTacToe</title>
   </head>
   <body>
@@ -12,13 +28,12 @@
       <div id="game-settings">
         <h2>Game Settings</h2>
         <label>
-          <input type="radio" name="winScore" value="5" checked />First to 5
-          wins
+          <input type="radio" name="winScore" value="5" checked />Race to 5
         </label>
         <label>
-          <input type="radio" name="winScore" value="10" />First to 10 wins
+          <input type="radio" name="winScore" value="10" />Race to 10
         </label>
-        <br />
+        <br /><br />
         <label>
           <input type="radio" name="gameMode" value="single" checked />Single
           Player
@@ -26,14 +41,15 @@
         <label>
           <input type="radio" name="gameMode" value="twoPlayer" />Two Players
         </label>
-        <br />
+        <br /><br />
         <div id="playerNames">
           <label for="player1Name">Player 1 Name:</label>
           <input type="text" id="player1Name" placeholder="Player 1" />
-          <br />
+          <br /><br />
           <label for="player2Name">Player 2 Name:</label>
           <input type="text" id="player2Name" placeholder="Player 2" />
         </div>
+        <br />
         <button onclick="startGame()">Start Game</button>
       </div>
 
