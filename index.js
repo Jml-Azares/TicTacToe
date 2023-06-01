@@ -12,10 +12,10 @@ let winningCombinations;
 let gameModeRadios = document.querySelectorAll('input[name="gameMode"]');
 gameModeRadios.forEach(function (radio) {
   radio.addEventListener("change", function () {
-    var gameMode = document.querySelector(
+    let gameMode = document.querySelector(
       'input[name="gameMode"]:checked'
     ).value;
-    var player2Input = document.getElementById("player2Name");
+    let player2Input = document.getElementById("player2Name");
 
     if (gameMode === "single") {
       player2Input.disabled = true;
