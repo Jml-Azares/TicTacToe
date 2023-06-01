@@ -24,66 +24,117 @@
       href="images/pngwing.com.png"
       type="image/x-icon"
     />
-    <title>TicTacToe</title>
   </head>
   <body>
-    <div id="game-container">
-      <div id="game-settings">
-        <h2>Game Settings</h2>
-        <label>
-          <input type="radio" name="winScore" value="5" checked />Race to 5
-        </label>
-        <br />
-        <label>
-          <input type="radio" name="winScore" value="10" />Race to 10
-        </label>
-        <br /><br />
-        <label>
-          <input type="radio" name="gameMode" value="single" checked />Single
-          Player
-        </label>
-        <label>
-          <input type="radio" name="gameMode" value="twoPlayer" />Two Players
-        </label>
-        <br /><br />
-        <div id="playerNames">
-          <div id="player1">
-            <label for="player1Name">Player 1:</label>
-            <input type="text" id="player1Name" placeholder="Player 1" />
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-lg-6">
+          <div id="game-container">
+            <div id="game-settings">
+              <h2 class="text-center">Game Settings</h2>
+              <br />
+              <div class="form-check">
+                <input
+                  class="form-check-input"
+                  type="radio"
+                  name="winScore"
+                  value="5"
+                  id="winScore1"
+                  checked
+                />
+                <label class="form-check-label" for="winScore1"
+                  >Race to 5</label
+                >
+              </div>
+              <div class="form-check">
+                <input
+                  class="form-check-input"
+                  type="radio"
+                  name="winScore"
+                  value="10"
+                  id="winScore2"
+                />
+                <label class="form-check-label" for="winScore2"
+                  >Race to 10</label
+                >
+              </div>
+              <br />
+              <div class="form-check">
+                <input
+                  class="form-check-input"
+                  type="radio"
+                  name="gameMode"
+                  value="single"
+                  id="gameMode1"
+                  checked
+                />
+                <label class="form-check-label" for="gameMode1"
+                  >Single Player</label
+                >
+              </div>
+              <div class="form-check">
+                <input
+                  class="form-check-input"
+                  type="radio"
+                  name="gameMode"
+                  value="twoPlayer"
+                  id="gameMode2"
+                />
+                <label class="form-check-label" for="gameMode2"
+                  >Two Players</label
+                >
+              </div>
+              <br /><br />
+              <div id="playerNames">
+                <div id="player1">
+                  <label for="player1Name">Player 1:</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="player1Name"
+                    placeholder="Player 1"
+                  />
+                </div>
+                <br />
+                <div id="player2">
+                  <label for="player2Name">Player 2:</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="player2Name"
+                    placeholder="Player 2"
+                  />
+                </div>
+              </div>
+              <br />
+              <button class="btn btn-primary" onclick="startGame()">
+                Start Game
+              </button>
+            </div>
+            <div id="game-board" class="game-hidden">
+              <h2 class="text-center">Scoreboard</h2>
+              <div id="scores">
+                <div id="player1Score" class="text-center">Player 1: 0</div>
+                <div id="player2Score" class="text-center">Player 2: 0</div>
+              </div>
+              <div id="turnMessage" class="text-center"></div>
+              <div id="cells">
+                <div id="cell0" onclick="makeMove(0)"></div>
+                <div id="cell1" onclick="makeMove(1)"></div>
+                <div id="cell2" onclick="makeMove(2)"></div>
+                <div id="cell3" onclick="makeMove(3)"></div>
+                <div id="cell4" onclick="makeMove(4)"></div>
+                <div id="cell5" onclick="makeMove(5)"></div>
+                <div id="cell6" onclick="makeMove(6)"></div>
+                <div id="cell7" onclick="makeMove(7)"></div>
+                <div id="cell8" onclick="makeMove(8)"></div>
+              </div>
+              <button class="btn btn-primary" onclick="resetGame()">
+                Reset Game
+              </button>
+            </div>
           </div>
-          <br />
-          <div id="player2">
-            <label for="player2Name">Player 2:</label>
-            <input type="text" id="player2Name" placeholder="Player 2" />
-          </div>
         </div>
-        <br />
-        <button class="btn btn-primary" onclick="startGame()">
-          Start Game
-        </button>
-      </div>
-
-      <div id="game-board" class="game-hidden">
-        <h2>Scoreboard</h2>
-        <div id="scores">
-          <div id="player1Score">Player 1: 0</div>
-          <div id="player2Score">Player 2: 0</div>
-        </div>
-        <div id="turnMessage"></div>
-        <div id="cells">
-          <div id="cell0" onclick="makeMove(0)"></div>
-          <div id="cell1" onclick="makeMove(1)"></div>
-          <div id="cell2" onclick="makeMove(2)"></div>
-          <div id="cell3" onclick="makeMove(3)"></div>
-          <div id="cell4" onclick="makeMove(4)"></div>
-          <div id="cell5" onclick="makeMove(5)"></div>
-          <div id="cell6" onclick="makeMove(6)"></div>
-          <div id="cell7" onclick="makeMove(7)"></div>
-          <div id="cell8" onclick="makeMove(8)"></div>
-        </div>
-        <button class="btn btn-primary" onclick="resetGame()">
-          Reset Game
-        </button>
       </div>
     </div>
     <script src="index.js"></script>
